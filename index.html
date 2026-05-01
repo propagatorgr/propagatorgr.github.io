@@ -1,66 +1,60 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-<meta charset="UTF-8">
-<title>Διαδραστικές Προσομοιώσεις</title>
-
-<!-- Φόρτωση CSS -->
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <title>Διαδραστικές Προσομοιώσεις</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <h1>📚 Διαδραστικές Προσομοιώσεις</h1>
+
 <p class="subtitle">
-Εκπαιδευτικές εφαρμογές Φυσικής και Θετικών Επιστημών.
-Διάβασε την περιγραφή και επίλεξε.
+  Εκπαιδευτικές εφαρμογές Φυσικής και Θετικών Επιστημών.
+  Διάβασε την περιγραφή και επίλεξε.
 </p>
 
 <div id="projects"></div>
 
-<!-- Φόρτωση δεδομένων -->
 <script src="projects.js"></script>
 
 <script>
 const container = document.getElementById("projects");
 
 projects.forEach((p, i) => {
-
   const card = document.createElement("a");
   card.className = "card";
-  card.href = `https://propagatorgr.github.io/${p.repo}/`;
+  card.href = "https://propagatorgr.github.io/" + p.repo + "/";
   card.style.textDecoration = "none";
   card.style.color = "inherit";
 
   const coverURL =
-    `https://raw.githubusercontent.com/propagatorgr/${p.repo}/main/cover.jpg`;
+    "https://raw.githubusercontent.com/propagatorgr/" + p.repo + "/main/cover.jpg";
 
   const readmeURL =
-    `https://raw.githubusercontent.com/propagatorgr/${p.repo}/main/README.md`;
+    "https://raw.githubusercontent.com/propagatorgr/" + p.repo + "/main/README.md";
 
   card.innerHTML = `
-    <img src="${coverURL}" alt="coverappendChild(card);
+    <img src="${
+
+  container.appendChild(card);
 
   fetch(readmeURL)
     .then(r => r.text())
     .then(text => {
       const lines = text.split("\n").map(l => l.trim());
-
-      if (lines[0]?.startsWith("#")) lines.shift();
+      if (lines[0] && lines[0].startsWith("#")) lines.shift();
 
       const summary = [];
       for (const line of lines) {
-        if (line === "") break;
+        if (!line) break;
         summary.push(line);
         if (summary.length === 4) break;
       }
 
-      document.getElementById(`desc-${i}`).textContent =
+      document.getElementById("desc-" + i).textContent =
         summary.join(" ");
-    })
-    .catch(() => {
-      document.getElementById(`desc-${i}`).textContent = "";
     });
 });
 </script>
