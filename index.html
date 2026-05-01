@@ -73,7 +73,7 @@ projects.forEach((p, i) => {
     if (descEl) {
       descEl.textContent = "Δεν βρέθηκε περιγραφή.";
     }
-  });
+  })
     .catch(() => {
       const descEl = document.getElementById(`desc-${i}`);
       if (descEl) descEl.textContent = "Δεν βρέθηκε περιγραφή.";
