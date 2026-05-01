@@ -4,7 +4,7 @@ const projects = [
     repo: "stasima"
   },
   {
-    title: "Στάσιμα κύματα – εναλλακτική προσέγγιση",
+    title: "Στάσιμα κύματα",
     repo: "stasima2"
   },
   {
