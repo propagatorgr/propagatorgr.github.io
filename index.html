@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Διαδραστικές Προσομοιώσεις</title>
 
-<!-- ΦΟΡΤΩΣΗ CSS -->
+<!-- Φόρτωση CSS -->
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -19,7 +19,7 @@
 
 <div id="projects"></div>
 
-<!-- ΦΟΡΤΩΣΗ ΛΙΣΤΑΣ PROJECTS -->
+<!-- Φόρτωση δεδομένων -->
 <script src="projects.js"></script>
 
 <script>
@@ -47,9 +47,7 @@ projects.forEach((p, i) => {
     .then(text => {
       const lines = text.split("\n").map(l => l.trim());
 
-      if (lines.length && lines[0].startsWith("#")) {
-        lines.shift();
-      }
+      if (lines[0]?.startsWith("#")) lines.shift();
 
       const summary = [];
       for (const line of lines) {
