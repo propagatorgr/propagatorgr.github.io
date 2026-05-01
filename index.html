@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Διαδραστικές Προσομοιώσεις</title>
 
-<!-- Φόρτωση CSS -->
+<!-- ΦΟΡΤΩΣΗ CSS -->
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -19,14 +19,14 @@
 
 <div id="projects"></div>
 
-<!-- Φόρτωση λίστας projects -->
+<!-- ΦΟΡΤΩΣΗ ΛΙΣΤΑΣ PROJECTS -->
 <script src="projects.js"></script>
 
 <script>
 const container = document.getElementById("projects");
 
 projects.forEach((p, i) => {
-  // Κάρτα ως link
+
   const card = document.createElement("a");
   card.className = "card";
   card.href = `https://propagatorgr.github.io/${p.repo}/`;
@@ -40,20 +40,17 @@ projects.forEach((p, i) => {
     `https://raw.githubusercontent.com/propagatorgr/${p.repo}/main/README.md`;
 
   card.innerHTML = `
-    <img src="${coverURL}" alt="ppendChild(card);
+    <img src="${coverURL}" alt="coverappendChild(card);
 
-  // Φόρτωση README
   fetch(readmeURL)
     .then(r => r.text())
     .then(text => {
       const lines = text.split("\n").map(l => l.trim());
 
-      // Αφαίρεση αρχικού τίτλου (# ...)
       if (lines.length && lines[0].startsWith("#")) {
         lines.shift();
       }
 
-      // Πάρε μπλοκ περιγραφής
       const summary = [];
       for (const line of lines) {
         if (line === "") break;
@@ -61,16 +58,14 @@ projects.forEach((p, i) => {
         if (summary.length === 4) break;
       }
 
-      const descEl = document.getElementById(`desc-${i}`);
-      descEl.textContent = summary.join(" ");
+      document.getElementById(`desc-${i}`).textContent =
+        summary.join(" ");
     })
     .catch(() => {
-      const descEl = document.getElementById(`desc-${i}`);
-      descEl.textContent = "";
+      document.getElementById(`desc-${i}`).textContent = "";
     });
 });
 </script>
 
 </body>
 </html>
-
