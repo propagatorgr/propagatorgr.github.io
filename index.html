@@ -35,8 +35,11 @@ projects.forEach((p, i) => {
   const readmeURL =
     "https://raw.githubusercontent.com/propagatorgr/" + p.repo + "/main/README.md";
 
-  card.innerHTML = `
-    <img src="${
+  
+card.innerHTML = `
+  <img src="${coverURL}">
+  <h2>${p.title}</h2>
+  <p id="desc-${i}"></p>;
 
   container.appendChild(card);
 
