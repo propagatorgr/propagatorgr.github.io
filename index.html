@@ -24,10 +24,13 @@ const container = document.getElementById("projects");
 
 projects.forEach((p, i) => {
   const card = document.createElement("a");
-  card.className = "card";
-  card.href = "https://propagatorgr.github.io/" + p.repo + "/";
-  card.style.textDecoration = "none";
-  card.style.color = "inherit";
+card.className = "card";
+card.href = `https://propagatorgr.github.io/${p.repo}/`;
+card.target = "_blank";
+card.rel = "noopener noreferrer";
+card.style.textDecoration = "none";
+card.style.color = "inherit";
+
 
   const coverURL =
     "https://raw.githubusercontent.com/propagatorgr/" + p.repo + "/main/cover.jpg";
