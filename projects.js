@@ -28,7 +28,7 @@ const projects = [
     repo: "heart"
   },
   {
-    title: "Third simulation",
+    title: "Δυνάμεις σε ακίνητα σώματα σε επαφή",
     repo: "third_sim"
   }
 ];
