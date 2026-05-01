@@ -36,10 +36,12 @@ projects.forEach((p, i) => {
     "https://raw.githubusercontent.com/propagatorgr/" + p.repo + "/main/README.md";
 
   
+
 card.innerHTML = `
   <img src="${coverURL}">
   <h2>${p.title}</h2>
-  <p id="desc-${i}"></p>;
+  <p id="desc-${i}"></p>
+`;
 
   container.appendChild(card);
 
