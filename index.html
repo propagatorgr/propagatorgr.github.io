@@ -48,19 +48,30 @@ card.innerHTML = `
   fetch(readmeURL)
     .then(r => r.text())
     .then(text => {
-      const lines = text.split("\n").map(l => l.trim());
-      if (lines[0] && lines[0].startsWith("#")) lines.shift();
+  const lines = text.split("\n").map(l => l.trim());
 
-      const summary = [];
-      for (const line of lines) {
-        if (!line) break;
-        summary.push(line);
-        if (summary.length === 4) break;
-      }
+  let start = 0;
 
-      document.getElementById("desc-" + i).textContent =
-        summary.join(" ");
-    });
+  // Αν η 1η γραμμή είναι τίτλος (# ...)
+  if (lines[start] && lines[start].startsWith("#")) {
+    start++;
+  }
+
+  // Αν ακολουθεί κενή γραμμή, την προσπερνάμε
+  while (lines[start] === "") {
+    start++;
+  }
+
+  // Παίρνουμε ΜΟΝΟ την πρώτη παράγραφο
+  const paragraph = [];
+  for (let i = start; i < lines.length; i++) {
+    if (lines[i] === "") break;
+    paragraph.push(lines[i]);
+  }
+
+  document.getElementById("desc-" + i).textContent =
+    paragraph.join(" ");
+})
 });
 </script>
 
