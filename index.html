@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>Διαδραστικές Προσομοιώσεις</title>
 
-<!-- ΦΟΡΤΩΣΗ CSS -->
+<!-- Φόρτωση CSS -->
 <link rel="stylesheet" href="style.css">
 
 </head>
@@ -19,7 +19,7 @@
 
 <div id="projects"></div>
 
-<!-- ΦΟΡΤΩΣΗ JS -->
+<!-- Φόρτωση λίστας projects ΠΡΙΝ τον κώδικα -->
 <script src="projects.js"></script>
 
 <script>
@@ -39,7 +39,7 @@ projects.forEach(p => {
     `https://propagatorgr.github.io/${p.repo}/`;
 
   card.innerHTML = `
-    <img src="${coverURL}" onerror="this.style.display='γμα προσομοίωσης</a>
+    <img src="${coverURL}" onerror="this.style <a href="${pageURL} προσομοίωσης</a>
   `;
 
   container.appendChild(card);
@@ -49,14 +49,20 @@ projects.forEach(p => {
     .then(text => {
       const summary = text
         .split("\n")
-        .filter(l => l.trim() && !l.startsWith("#"))
+        .filter(line => line.trim() && !line.startsWith("#"))
         .slice(0,4)
         .join(" ");
-      document.getElementById(`desc-${p.repo}`).textContent = summary;
+
+      const descEl = document.getElementById(`desc-${p.repo}`);
+      if (descEl) {
+        descEl.textContent = summary;
+      }
     })
     .catch(() => {
-      document.getElementById(`desc-${p.repo}`).textContent =
-        "Δεν βρέθηκε περιγραφή.";
+      const descEl = document.getElementById(`desc-${p.repo}`);
+      if (descEl) {
+        descEl.textContent = "Δεν βρέθηκε περιγραφή.";
+      }
     });
 });
 </script>
