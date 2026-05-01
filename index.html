@@ -25,9 +25,13 @@
 <script>
 const container = document.getElementById("projects");
 
-projects.forEach(p => {
-  const card = document.createElement("div");
+projects.forEach((p, i) => {
+  const card = document.createElement("a");
   card.className = "card";
+  card.href = `https://propagatorgr.github.io/${p.repo}/`;
+  card.target = "_self";
+  card.style.textDecoration = "none";
+  card.style.color = "inherit";
 
   const coverURL =
     `https://raw.githubusercontent.com/propagatorgr/${p.repo}/main/cover.jpg`;
@@ -35,11 +39,8 @@ projects.forEach(p => {
   const readmeURL =
     `https://raw.githubusercontent.com/propagatorgr/${p.repo}/main/README.md`;
 
-  const pageURL =
-    `https://propagatorgr.github.io/${p.repo}/`;
-
   card.innerHTML = `
-    <img src="${coverURL}" onerror="this.style <a href="${pageURL} προσομοίωσης</a>
+    <img src="${coverURL}" onerror="this    <p id="desc-${i}">Φόρτωση περιγραφής…</p>
   `;
 
   container.appendChild(card);
@@ -53,16 +54,12 @@ projects.forEach(p => {
         .slice(0,4)
         .join(" ");
 
-      const descEl = document.getElementById(`desc-${p.repo}`);
-      if (descEl) {
-        descEl.textContent = summary;
-      }
+      const descEl = document.getElementById(`desc-${i}`);
+      if (descEl) descEl.textContent = summary;
     })
     .catch(() => {
-      const descEl = document.getElementById(`desc-${p.repo}`);
-      if (descEl) {
-        descEl.textContent = "Δεν βρέθηκε περιγραφή.";
-      }
+      const descEl = document.getElementById(`desc-${i}`);
+      if (descEl) descEl.textContent = "Δεν βρέθηκε περιγραφή.";
     });
 });
 </script>
