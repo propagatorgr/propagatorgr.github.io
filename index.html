@@ -46,17 +46,34 @@ projects.forEach((p, i) => {
   container.appendChild(card);
 
   fetch(readmeURL)
-    .then(r => r.text())
-    .then(text => {
-      const summary = text
-        .split("\n")
-        .filter(line => line.trim() && !line.startsWith("#"))
-        .slice(0,4)
-        .join(" ");
+  .then(r => r.text())
+  .then(text => {
+    const lines = text.split("\n").map(l => l.trim());
 
-      const descEl = document.getElementById(`desc-${i}`);
-      if (descEl) descEl.textContent = summary;
-    })
+    // Αγνόησε αρχικό τίτλο (# ...)
+    if (lines[0].startsWith("#")) {
+      lines.shift();
+    }
+
+    // Πάρε συνεχόμενες μη κενές γραμμές
+    const summaryLines = [];
+    for (const line of lines) {
+      if (line === "") break;
+      summaryLines.push(line);
+      if (summaryLines.length === 4) break;
+    }
+
+    const descEl = document.getElementById(`desc-${i}`);
+    if (descEl) {
+      descEl.textContent = summaryLines.join(" ");
+    }
+  })
+  .catch(() => {
+    const descEl = document.getElementById(`desc-${i}`);
+    if (descEl) {
+      descEl.textContent = "Δεν βρέθηκε περιγραφή.";
+    }
+  });
     .catch(() => {
       const descEl = document.getElementById(`desc-${i}`);
       if (descEl) descEl.textContent = "Δεν βρέθηκε περιγραφή.";
