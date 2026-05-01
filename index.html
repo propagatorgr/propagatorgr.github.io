@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<title>Διαδραστικές Προσομοιώσεις</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>📚 Διαδραστικές Προσομοιώσεις</h1>
+<p class="subtitle">
+Εκπαιδευτικές εφαρμογές Φυσικής και Θετικών Επιστημών.
+Διάβασε την περιγραφή και επίλεξε.
+</p>
+
+<div id="projects"></div>
+
+<script src="projects.js"></script>
+
+<script>
+const container = document.getElementById("projects");
+
+projects.forEach(p => {
+  const card = document.createElement("div");
+  card.className = "card";
+
+  const coverURL =
+    `https://raw.githubusercontent.com/propagatorgr/${p.repo}/main/cover.jpg`;
+
+  const readmeURL =
+    `https://raw.githubusercontent.com/propagatorgr/${p.repo}/main/README.md`;
+
+  const pageURL =
+    `https://propagatorgr.github.io/${p.repo}/`;
+
+  card.innerHTML = `
+    <img src="${coverURL}" onerror="this.style.display='noneεφαρμογής</a>
+  `;
+
+  container.appendChild(card);
+
+  fetch(readmeURL)
+    .then(r => r.text())
+    .then(text => {
+      const summary = text
+        .split("\n")
+        .filter(l => l.trim() && !l.startsWith("#"))
+        .slice(0,4)
+        .join(" ");
+      document.getElementById(`desc-${p.repo}`).textContent = summary;
+    })
+    .catch(() => {
+      document.getElementById(`desc-${p.repo}`).textContent =
+        "Δεν βρέθηκε περιγραφή.";
+    });
+});
+</script>
+
+</body>
+</html>
