@@ -19,17 +19,17 @@
 
 <div id="projects"></div>
 
-<!-- Φόρτωση λίστας projects ΠΡΙΝ τον κώδικα -->
+<!-- Φόρτωση λίστας projects -->
 <script src="projects.js"></script>
 
 <script>
 const container = document.getElementById("projects");
 
 projects.forEach((p, i) => {
+  // Κάρτα ως link
   const card = document.createElement("a");
   card.className = "card";
   card.href = `https://propagatorgr.github.io/${p.repo}/`;
-  card.target = "_self";
   card.style.textDecoration = "none";
   card.style.color = "inherit";
 
@@ -40,43 +40,33 @@ projects.forEach((p, i) => {
     `https://raw.githubusercontent.com/propagatorgr/${p.repo}/main/README.md`;
 
   card.innerHTML = `
-    <img src="${coverURL}" onerror="this    <p id="desc-${i}">Φόρτωση περιγραφής…</p>
-  `;
+    <img src="${coverURL}" alt="ppendChild(card);
 
-  container.appendChild(card);
-
+  // Φόρτωση README
   fetch(readmeURL)
-  .then(r => r.text())
-  .then(text => {
-    const lines = text.split("\n").map(l => l.trim());
+    .then(r => r.text())
+    .then(text => {
+      const lines = text.split("\n").map(l => l.trim());
 
-    // Αγνόησε αρχικό τίτλο (# ...)
-    if (lines[0].startsWith("#")) {
-      lines.shift();
-    }
+      // Αφαίρεση αρχικού τίτλου (# ...)
+      if (lines.length && lines[0].startsWith("#")) {
+        lines.shift();
+      }
 
-    // Πάρε συνεχόμενες μη κενές γραμμές
-    const summaryLines = [];
-    for (const line of lines) {
-      if (line === "") break;
-      summaryLines.push(line);
-      if (summaryLines.length === 4) break;
-    }
+      // Πάρε μπλοκ περιγραφής
+      const summary = [];
+      for (const line of lines) {
+        if (line === "") break;
+        summary.push(line);
+        if (summary.length === 4) break;
+      }
 
-    const descEl = document.getElementById(`desc-${i}`);
-    if (descEl) {
-      descEl.textContent = summaryLines.join(" ");
-    }
-  })
-  .catch(() => {
-    const descEl = document.getElementById(`desc-${i}`);
-    if (descEl) {
-      descEl.textContent = "Δεν βρέθηκε περιγραφή.";
-    }
-  })
+      const descEl = document.getElementById(`desc-${i}`);
+      descEl.textContent = summary.join(" ");
+    })
     .catch(() => {
       const descEl = document.getElementById(`desc-${i}`);
-      if (descEl) descEl.textContent = "Δεν βρέθηκε περιγραφή.";
+      descEl.textContent = "";
     });
 });
 </script>
