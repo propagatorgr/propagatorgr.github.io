@@ -39,4 +39,8 @@ const projects = [
     title: "Διαγράμματα α.α.τ. - Αρχική φάση",
     repo: "time_phase"
   },
+  {
+    title: "Χάσιμο επαφής σε κατακόρυφο ελατήριο",
+    repo: "contact"
+  },
 ];
