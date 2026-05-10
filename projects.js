@@ -51,4 +51,8 @@ const projects = [
     title: "Κλασματική απόσταξη πετρελαίου",
     repo: "dist"
   },
+   {
+    title: "Προσομοίωση εξίσωσης Starling",
+    repo: "starling"
+  },
 ];
