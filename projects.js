@@ -12,6 +12,22 @@ const projects = [
     repo: "spring"
   },
   {
+    title: "Διαγράμματα α.α.τ. - Αρχική φάση",
+    repo: "time_phase"
+  },
+  {
+    title: "Κατακόρυφη ταλάντωση ιδανικού ελατηρίου",
+    repo: "spring2"
+  },
+   {
+    title: "Χάσιμο επαφής με οριζόντιο ελατήριο",
+    repo: "hcontact"
+  },
+   {
+    title: "Χάσιμο επαφής σε κατακόρυφο ελατήριο",
+    repo: "contact"
+  },
+  {
     title: "Βολή στο επίπεδο",
     repo: "voli"
   },
@@ -24,6 +40,10 @@ const projects = [
     repo: "periodicTable"
   },
   {
+    title: "Κλασματική απόσταξη πετρελαίου",
+    repo: "dist"
+  },
+  {
     title: "Μοντέλο καρδιάς",
     repo: "heart"
   },
@@ -31,26 +51,12 @@ const projects = [
     title: "Δυνάμεις σε ακίνητα σώματα σε επαφή",
     repo: "third_sim"
   },
-  {
-    title: "Κατακόρυφη ταλάντωση ιδανικού ελατηρίου",
-    repo: "spring2"
-  },
-  {
-    title: "Διαγράμματα α.α.τ. - Αρχική φάση",
-    repo: "time_phase"
-  },
-  {
-    title: "Χάσιμο επαφής σε κατακόρυφο ελατήριο",
-    repo: "contact"
-  },
+  
   {
     title: "Προσομοίωση οριακής ταχύτητας σε υγρό",
     repo: "boats"
   },
-   {
-    title: "Κλασματική απόσταξη πετρελαίου",
-    repo: "dist"
-  },
+   
    {
     title: "Προσομοίωση εξίσωσης Starling",
     repo: "starling"
