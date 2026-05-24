@@ -27,6 +27,10 @@ const projects = [
     title: "Χάσιμο επαφής σε κατακόρυφο ελατήριο",
     repo: "contact"
   },
+  {
+    title: "Αποκόλληση από το έδαφος",
+    repo: "detach"
+  },
    {
     title: "Έκκεντρη ελαστική κρούση σωμάτων ίδιας μάζας.",
     repo: "eccentric"
