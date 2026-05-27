@@ -39,6 +39,10 @@ const projects = [
     title: "Βολή στο επίπεδο",
     repo: "voli"
   },
+   {
+    title: "Έκρηξη σώματος και οριζόντια βολή",
+    repo: "explosion"
+  },
   {
     title: "Ανάλογα ποσά",
     repo: "analoga-possa"
