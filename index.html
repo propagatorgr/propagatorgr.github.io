@@ -53,7 +53,8 @@ card.style.color = "inherit";
 card.innerHTML = `
   <img src="${coverURL}">
   <h2>${p.title}</h2>
- <span class="more" data-index="${i}" onclick="event.stopPropagation()">Πληροφορίες</span>
+ <span class="more" data-index="${i}" onclick="event.stopPropagation();
+ "event.preventDefault();">Πληροφορίες</span>
 
 `;
 
