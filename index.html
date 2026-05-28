@@ -5,6 +5,7 @@
   <title>Διαδραστικές Προσομοιώσεις</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 
 <body>
@@ -105,7 +106,7 @@ if (e.target.classList.contains("more")) {
       .then(r => r.text())
       .then(text => {
         document.getElementById("modal-text").innerHTML = marked.parse(text);
-
+        MathJax.typeset();
         document.getElementById("modal").style.display = "block";
       });
   }
