@@ -101,4 +101,10 @@ width: 100%;
   transform: translateY(-6px);
   box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
+ 
+#projects {
+    grid-template-columns: 1fr;
+  }
+
+
 }
