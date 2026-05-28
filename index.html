@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Διαδραστικές Προσομοιώσεις</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
@@ -103,7 +104,8 @@ if (e.target.classList.contains("more")) {
     fetch(readmeURL)
       .then(r => r.text())
       .then(text => {
-        document.getElementById("modal-text").textContent = text;
+        document.getElementById("modal-text").innerHTML = marked.parse(text);
+
         document.getElementById("modal").style.display = "block";
       });
   }
@@ -116,7 +118,7 @@ document.getElementById("close").onclick = () => {
 </script>
 <div id="modal" class="modal">
   <div class="modal-content">
-    <span id="close">&times;</span>
+    <span id="close" onclick="document.getElementById('modal').style.display='none'">&times;</span>
     <div id="modal-text"></div>
   </div>
 </div>
