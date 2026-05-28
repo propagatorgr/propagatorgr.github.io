@@ -106,7 +106,8 @@ if (e.target.classList.contains("more")) {
       .then(r => r.text())
       .then(text => {
         document.getElementById("modal-text").innerHTML = marked.parse(text);
-        MathJax.typeset();
+       MathJax.typesetPromise();
+
         document.getElementById("modal").style.display = "block";
       });
   }
