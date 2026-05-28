@@ -89,7 +89,11 @@ card.innerHTML = `
 })
 });
   document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("more")) {
+ 
+if (e.target.classList.contains("more")) {
+  e.stopPropagation();
+  e.preventDefault();
+
     const i = e.target.dataset.index;
     const repo = projects[i].repo;
 
