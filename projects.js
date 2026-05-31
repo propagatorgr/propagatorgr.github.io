@@ -43,6 +43,10 @@ const projects = [
     title: "Έκρηξη σώματος και οριζόντια βολή",
     repo: "explosion"
   },
+   {
+    title: "Ηλεκτρική ταλάντωση",
+    repo: "eloads"
+  },
   {
     title: "Ανάλογα ποσά",
     repo: "analoga-possa"
