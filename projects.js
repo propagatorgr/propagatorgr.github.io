@@ -74,7 +74,7 @@ const projects = [
     repo: "starling"
   },
   {
-    title: "Europe Geography Challenge",
+    title: "Βρείτε την χώρα της Ευρώπης",
     repo: "EuropeGame"
   },
 ];
