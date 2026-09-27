@@ -73,4 +73,8 @@ const projects = [
     title: "Προσομοίωση εξίσωσης Starling",
     repo: "starling"
   },
+  {
+    title: "Europe Geography Challenge",
+    repo: "EuropeGame"
+  },
 ];
