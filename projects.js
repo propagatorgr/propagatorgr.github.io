@@ -77,4 +77,8 @@ const projects = [
     title: "Προσομοίωση εξίσωσης Starling",
     repo: "starling"
   },
+   {
+    title: "Βρες τη χώρα της Ευρώπης",
+    repo: "EuropeGame"
+  },
 ];
